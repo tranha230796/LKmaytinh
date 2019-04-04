@@ -35,6 +35,12 @@ namespace LKmaytinh.Controllers
             //var sp = from s in db.SanPhams where s.Maloai == id select s;
             //return View(sp);
         }
+		[HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
     }
 }
 
