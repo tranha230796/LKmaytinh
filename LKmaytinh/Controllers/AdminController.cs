@@ -21,7 +21,7 @@ namespace LKmaytinh.Controllers
             return View();
         }
         // GET: Admin
-     public ActionResult SanPham()
+		public ActionResult SanPham()
         {
             if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
             {
