@@ -29,6 +29,12 @@ namespace LKmaytinh.Controllers
             }
             return View(db.SanPhams.ToList());
         }
+		public ActionResult NSX()
+        {
+            return View(db.NhaSXes.ToList());
+            //var sp = from s in db.SanPhams where s.Maloai == id select s;
+            //return View(sp);
+        }
     }
 }
 
