@@ -42,6 +42,12 @@ namespace LKmaytinh.Controllers
             }
             return this.Login();
         }
+		[HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
     }
 }
 
