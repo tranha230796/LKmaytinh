@@ -16,7 +16,10 @@ namespace LKmaytinh.Controllers
     {
         dbMayTinhDataContext db = new dbMayTinhDataContext();
 
-
+ 		public ActionResult Index()
+        {
+            return View();
+        }
         // GET: Admin
         public ActionResult SanPham()
         {
@@ -28,3 +31,4 @@ namespace LKmaytinh.Controllers
         }
     }
 }
+
