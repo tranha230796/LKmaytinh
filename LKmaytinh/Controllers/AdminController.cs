@@ -25,6 +25,7 @@ namespace LKmaytinh.Controllers
         {
             if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
             {
+				Console.Write("Chưa đăng nhập.");
                 return RedirectToAction("Login", "Admin");
             }
             return View(db.SanPhams.ToList());
