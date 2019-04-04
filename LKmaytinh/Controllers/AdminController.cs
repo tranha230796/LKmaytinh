@@ -42,6 +42,11 @@ namespace LKmaytinh.Controllers
             return View();
         }
 
+		[HttpGet]
+        public ActionResult Logina()
+        {
+            return View();
+        }
     }
 }
 
