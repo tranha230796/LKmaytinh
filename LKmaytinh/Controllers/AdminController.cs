@@ -15,29 +15,16 @@ namespace LKmaytinh.Controllers
     public class AdminController : Controller
     {
         dbMayTinhDataContext db = new dbMayTinhDataContext();
-
-<<<<<<< .mine
  		 public ActionResult Index()
 		{
-            return View();
-        }
-=======
- 		[HttpPost]
-        public ActionResult Login(FormCollection collection)
->>>>>>> .theirs
-        {
             return View();
         }
 		public ActionResult SanPham()
         {
             if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
-=======
             var tendn = collection["username"];
             var matkhau = collection["password"];
             if (String.IsNullOrEmpty(tendn))
-
-
->>>>>>> .theirs
             {
                 ViewData["Loi1"] = "Nhap ten username ";
             }
@@ -58,7 +45,6 @@ namespace LKmaytinh.Controllers
             }
             return this.Login();
         }
-<<<<<<< .mine
 		public ActionResult NSX()
         {
             return View(db.NhaSXes.ToList());
@@ -70,19 +56,6 @@ namespace LKmaytinh.Controllers
         {
             return View();
         }
-=======
-		
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
 		[HttpPost]
         public ActionResult Login(FormCollection collection)
         {
@@ -109,13 +82,7 @@ namespace LKmaytinh.Controllers
                     ViewBag.Thongbao = "Ten dang nhap sai or mat khau khong dung ";
             }
             return this.Login();
-        }
-<<<<<<< .mine
-
-=======
-
->>>>>>> .theirs
-		
+        }		
     }
 }
 
