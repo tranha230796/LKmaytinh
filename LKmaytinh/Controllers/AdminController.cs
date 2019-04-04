@@ -16,18 +16,49 @@ namespace LKmaytinh.Controllers
     {
         dbMayTinhDataContext db = new dbMayTinhDataContext();
 
+<<<<<<< .mine
  		 public ActionResult Index()
+		{
+            return View();
+        }
+=======
+ 		[HttpPost]
+        public ActionResult Login(FormCollection collection)
+>>>>>>> .theirs
         {
             return View();
         }
 		public ActionResult SanPham()
         {
             if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+=======
+            var tendn = collection["username"];
+            var matkhau = collection["password"];
+            if (String.IsNullOrEmpty(tendn))
+
+
+>>>>>>> .theirs
             {
-                return RedirectToAction("Login", "Admin");
+                ViewData["Loi1"] = "Nhap ten username ";
             }
-            return View(db.SanPhams.ToList());
+            else if (String.IsNullOrEmpty(matkhau))
+            {
+                ViewData["Loi2"] = "Nhap password";
+            }
+            else
+            {
+                Admin ad = db.Admins.SingleOrDefault(n => n.UserAdmin == tendn && n.PassAdmin == matkhau);
+                if (ad != null)
+                {
+                    Session["Taikhoanadmin"] = ad;
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                    ViewBag.Thongbao = "Ten dang nhap sai or mat khau khong dung ";
+            }
+            return this.Login();
         }
+<<<<<<< .mine
 		public ActionResult NSX()
         {
             return View(db.NhaSXes.ToList());
@@ -39,6 +70,19 @@ namespace LKmaytinh.Controllers
         {
             return View();
         }
+=======
+		
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
 		[HttpPost]
         public ActionResult Login(FormCollection collection)
         {
@@ -66,7 +110,11 @@ namespace LKmaytinh.Controllers
             }
             return this.Login();
         }
+<<<<<<< .mine
 
+=======
+
+>>>>>>> .theirs
 		
     }
 }
