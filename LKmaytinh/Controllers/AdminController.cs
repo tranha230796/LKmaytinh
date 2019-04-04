@@ -16,19 +16,32 @@ namespace LKmaytinh.Controllers
     {
         dbMayTinhDataContext db = new dbMayTinhDataContext();
 
- 		public ActionResult Index()
+ 		[HttpPost]
+        public ActionResult Login(FormCollection collection)
         {
-            return View();
-        }
-        // GET: Admin
-		public ActionResult SanPham()
-        {
-            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            var tendn = collection["username"];
+            var matkhau = collection["password"];
+            if (String.IsNullOrEmpty(tendn))
             {
 				Console.Write("Chưa đăng nhập.");
                 return RedirectToAction("Login", "Admin");
             }
-            return View(db.SanPhams.ToList());
+            else if (String.IsNullOrEmpty(matkhau))
+            {
+                ViewData["Loi2"] = "Nhap password";
+            }
+            else
+            {
+                Admin ad = db.Admins.SingleOrDefault(n => n.UserAdmin == tendn && n.PassAdmin == matkhau);
+                if (ad != null)
+                {
+                    Session["Taikhoanadmin"] = ad;
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                    ViewBag.Thongbao = "Ten dang nhap sai or mat khau khong dung ";
+            }
+            return this.Login();
         }
 		public ActionResult NSX()
         {
