@@ -16,7 +16,30 @@ namespace LKmaytinh.Controllers
     {
         dbMayTinhDataContext db = new dbMayTinhDataContext();
 
- 		[HttpPost]
+ 		 public ActionResult Index()
+        {
+            return View();
+        }
+		public ActionResult SanPham()
+        {
+            if (Session["Taikhoanadmin"] == null || Session["Taikhoanadmin"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            return View(db.SanPhams.ToList());
+        }
+		public ActionResult NSX()
+        {
+            return View(db.NhaSXes.ToList());
+            //var sp = from s in db.SanPhams where s.Maloai == id select s;
+            //return View(sp);
+        }
+		[HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+		[HttpPost]
         public ActionResult Login(FormCollection collection)
         {
             var tendn = collection["username"];
@@ -43,23 +66,8 @@ namespace LKmaytinh.Controllers
             }
             return this.Login();
         }
-		public ActionResult NSX()
-        {
-            return View(db.NhaSXes.ToList());
-            //var sp = from s in db.SanPhams where s.Maloai == id select s;
-            //return View(sp);
-        }
-		[HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
 
-		[HttpGet]
-        public ActionResult Logina()
-        {
-            return View();
-        }
+		
     }
 }
 
