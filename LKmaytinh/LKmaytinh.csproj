@@ -1620,6 +1620,8 @@
     <Content Include="Views\Admin\DonHang.cshtml" />
     <Content Include="Views\Admin\SuaDonHang.cshtml" />
     <Content Include="Views\MayTinh\TimKiem.cshtml" />
+    <Content Include="Views\Admin\SignIn.cshtml" />
+    <Content Include="Views\Admin\_layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
