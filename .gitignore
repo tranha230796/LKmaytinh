@@ -1,0 +1,16 @@
+*.suo
+
+*.csproj
+
+*.user
+
+*.dll
+[Bb]in
+
+[Ob]bj
+
+[Rr]elease
+
+[Dd]ebug
+
+/.vs/LKmaytinh/v15/*.suo
