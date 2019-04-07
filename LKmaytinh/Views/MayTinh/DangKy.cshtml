@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+
+<div class="row" style="text-align:center">
+    <h2>Đăng Ký</h2>
+</div>
+<table align="center" width="25%">
+    <h2 style="height:40px"></h2>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>
+                Họ tên:
+            </td>
+            <td>
+                @Html.TextBox("HotenKH", "", htmlAttributes: new { @style ="max-width: 250px",@class = "form-control"})
+                @ViewData["Loi1"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Tên đăng nhập:</td>
+            <td>
+                @Html.TextBox("TenDN", "", htmlAttributes: new { @style = "max-width: 250px", @class = "form-control" })
+                @ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Mật khẩu:</td>
+            <td>
+                @Html.Password("Matkhau", "", htmlAttributes: new { @style = "max-width: 250px", @class = "form-control" })
+                @ViewData["Loi3"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Nhập lại mật khẩu:</td>
+            <td>
+                @Html.Password("Nhatlaimatkhau", "", htmlAttributes: new { @style = "max-width: 250px", @class = "form-control" })
+                @ViewData["Loi4"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Email:</td>
+            <td>
+                @Html.TextBox("email", "", htmlAttributes: new { @style = "max-width: 250px", @class = "form-control" })
+                @ViewData["Loi4"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Địa chỉ:</td>
+            <td>
+                @Html.TextBox("Diachi", "", htmlAttributes: new { @style = "max-width: 250px", @class = "form-control" })
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Điện thoại:</td>
+            <td>
+                @Html.TextBox("Dienthoai", "", htmlAttributes: new { @style = "max-width: 250px", @class = "form-control" })
+                @ViewData["Loi6"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày sinh :</td>
+            <td>
+                <input type="date" name="Ngaysinh" class="form-control" style="max-width:100px" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input type="Submit" value="Đăng ký" class="btn btn-success" />
+            </td>
+        </tr>
+    }
+</table>

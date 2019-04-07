@@ -1,0 +1,123 @@
+﻿@using LKmaytinh.Models
+@{ 
+    KhachHang kh = (KhachHang)Session["Taikhoan"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/NguoiDungCssLayout/screen.css" rel="stylesheet" />
+    <link href="~/Content/NguoiDungCssLayout/fonts.css" rel="stylesheet" />
+    @* FONT BIEU TUONG *@
+    <script src="~/fonts/fontawesome-free-5.0.9/fontawesome-free-5.0.9/svg-with-js/js/fontawesome-all.min.js"></script>
+    <link href="~/fonts/fontawesome-free-5.0.9/fontawesome-free-5.0.9/web-fonts-with-css/css/fontawesome.min.css" rel="stylesheet" />
+    @*chen css thiet ke của mình*@
+    <link href="~/Content/NguoiDungCssLayout/NguoiDungCss.css" rel="stylesheet" />
+    @*chen link css nivoslider*@
+    <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/light/light.css" type="text/css" media="screen" />
+    @*<link rel="stylesheet" href="../themes/default/default.css" type="text/css" media="screen" />
+     <link rel="stylesheet" href="../nivo-slider.css" type="text/css" media="screen" />
+     <script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+     <link href="~/Nivoslider/nivo-slider.css" rel="stylesheet" />
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+     <script src="~/Nivoslider/jquery.nivo.slider.js"></script>
+     <script src="~/Nivoslider/jquery.nivo.slider.pack.js"></script>
+</head>
+
+<body>
+    <div id="ToanTrang">
+        <section class="blank">
+            <div class="flash success">
+                <div class="logo">
+                    <img src="~/Hinhanh/logo.jpg" />
+                </div>
+                <ul class="navMenu">
+                    <li>
+                        @Html.ActionLink("Trang chủ", "Index", "MayTinh")
+                    </li>
+                    <li>
+                        <a href="a">Máy tính</a>
+                        <ul class="menusub" style="width:250px">
+                            @Html.Action("loaisp", "loaisp")
+                        </ul>
+                    </li>
+                    <li>
+                        @Html.ActionLink("Liên Hệ", "LienHe", "MayTinh")
+                    </li>
+                    <li>
+                        <a href="a">Hướng dẫn mua</a>
+                    </li>
+                </ul>
+                <div class="DangKyDangNhap">
+                    @if (kh != null)
+        {
+            <i>Xin Chao @kh.HoTen</i>
+}
+else
+{
+            <i class="fas fa-unlock"></i>
+            @Html.ActionLink("Đăng ký", "DangKy", "MayTinh")
+            <i class="fas fa-sign-in-alt"></i>
+            @Html.ActionLink("Đăng nhập", "Dangnhap", "MayTinh")
+}
+                </div>
+               
+                <div class="giohang">
+                    @Html.Action("GiohangPartial", "GioHang")
+                </div>
+            </div>
+        </section>
+        <div>
+            @*<div class="col-md-9">*@
+            <div class="row-carousel-holder">
+                <div id="slider" class="nivoSlider">
+                    <img src="~/Hinhanh/slideshow_1.png" width="100%" />
+                    <img src="~/Hinhanh/slideshow_2.png" width="100%" />
+                    <img src="~/Hinhanh/slideshow_3.png" width="100%" />
+                    <img src="~/Hinhanh/slideshow_4.png" width="100%" />
+                </div>
+            </div>
+            @*</div>*@
+        </div>
+
+        <div>
+            @RenderBody()
+        </div>
+        <div style="clear:both"></div>
+        @*<section>
+
+            <hr>
+
+            <div>
+                <a href="#" class="button button-buy">Buy button (full width for columns)</a>
+            </div>
+        </section>*@
+        <div id="fb-root"></div>
+        <script>
+(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=1335482446552794&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+        @*lenh chay nivoslider*@
+        <script type="text/javascript">
+            $(window).load(function () {
+                $('#slider').nivoSlider({
+                    controlNav: false,
+                    nextText: '',
+                    prevText: '',
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

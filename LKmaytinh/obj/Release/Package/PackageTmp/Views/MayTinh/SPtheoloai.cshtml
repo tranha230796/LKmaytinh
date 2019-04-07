@@ -1,0 +1,30 @@
+﻿
+@using LKmaytinh.Models;
+@model IEnumerable<LKmaytinh.Models.SanPham>
+@{
+    ViewBag.Title = "SPtheoloai";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+<h3 style="text-align:center;color:red;font-size:30px;margin-top:10px"> Sản phẩm theo loại</h3>
+<div class="row">
+    @foreach (var sanpham in Model)
+    {
+        <div class="col-sm-3 col-lg-3 col-md-3">
+            <div class="thumbnail" style="height:400px;width:250px">
+                <a href="@Url.Action("Details","MayTinh",new { id=sanpham.MaSP})">
+                    <img alt="@sanpham.TenSP" src="~/Hinhanh/@sanpham.Anhbia" width="200" />
+                    <div>
+                        <br />
+                        <h4 style="text-align:center">
+                            @sanpham.TenSP
+                        </h4>
+                        <p class="pull-right" style="color:red">
+                        @string.Format("{0:0,000 VNĐ} ", sanpham.Gia)
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,63 @@
+﻿@*@model LKmaytinh.Models.SanPham*@
+@using LKmaytinh.Models;
+@model IEnumerable<LKmaytinh.Models.SanPham>
+
+@{
+    ViewBag.Title = "SanPham";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<h2>Quản Lý Sản Phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "Themspmoi", "Admin")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">Tên Sản Phẩm</th>
+        <th style="width:150px">Nhà Sản Xuất</th>
+        <th style="width:100px">Mã Loại</th>
+        <th style="width:100px">Tháng BH</th>
+        <th style="width:150px">Ảnh</th>
+        <th style="width:150px"> Giá</th>
+        <th style="width:400px">Mô tả</th>
+        <th style="width:150px">Ngày cập nhật</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhaSX.TenNSX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maloai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.thangBH)
+        </td>
+        <td>
+            <img src="@Url.Content("~/Hinhanh/"+ item.Anhbia)" width="120px" />
+        </td>
+        <td>
+            @*@String.Format("{0:0,000}VNĐ", item.Gia)*@
+            @Html.DisplayFor(modelItem => item.Gia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Sua", new { id = item.MaSP }) |
+            @Html.ActionLink("Chi tiết", "Chitiet", new { id = item.MaSP }) |
+            @Html.ActionLink("Xóa", "Xoa", new { id = item.MaSP })
+        </td>
+    </tr>
+    }
+
+</table>

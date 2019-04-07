@@ -1,0 +1,116 @@
+﻿/*su dung div toan trang*/
+div #ToanTrang {
+    
+    margin-left: 50px;
+    margin-right: 50px;
+    position: relative;
+}
+/*thiet ky dang ky dang nhap*/
+.DangKyDangNhap{
+    float:right;
+    margin-top:-43px;
+    font-size:25px;
+}
+.DangKyDangNhap a:hover{
+    text-decoration:none;
+    color:darkblue;
+}
+.icdienthoai{
+    float:left;
+    margin-top:-0.75%;
+}
+/*css cho menu header*/
+.navMenu{
+    margin-right:63%;
+    float:initial;
+    width:60%;
+}
+
+
+
+.navMenu li{
+    display:inline-block;
+    /*border:solid 2px rgba(0,0,0,.5);*/
+    padding:20px;
+    padding-top:21px;
+    padding-bottom:12px;
+    padding-left:20px;
+    position:relative;
+    list-style:none;
+    font-size:25px;
+    margin-left:18px;
+}
+
+.navMenu li .menusub{
+    margin-top:9%;
+    margin-left:-57%;
+    display:none;
+    position:absolute;
+    background-color: rgba(0,0,0,.5);
+    padding-left:0;
+    font-size:90%;
+    text-align:center;
+    width:500px;
+    z-index:99;
+}
+
+.navMenu li .menusub a{
+    display:block;
+}
+
+
+
+.navMenu li:hover .menusub{
+    display:block;
+}
+
+
+.navMenu li .menusub a{
+    color:#b6ff00;
+    
+}
+.navMenu li .menusub a:hover {
+        color:#ffffff;
+        text-decoration:none;
+ }
+.navMenu li .menusub > ul{
+    display:none;
+}
+.navMenu li:hover {
+   background-color: rgba(0, 0, 0,.5);
+     -webkit-transition: all .5s ease-out;
+             -moz-transition: all .5s ease-out;
+}
+.navMenu a:hover{
+    text-decoration:none;
+} 
+.button{
+    float:left;
+    margin-top:-1%;
+    margin-left:-1%;
+}
+#slider {
+    width: 80%;
+    margin-left: 200px;
+    margin-right: 100px;
+}
+#slider img {
+    width: 100%;
+}
+
+.giohang{
+    font-size:25px;
+    margin-top:-41px;
+    margin-left:950px;
+}
+
+.logo{
+    float:left;
+    margin-top:0px;
+}
+
+.logo img{
+    width:100px;
+    height:65px;
+    margin-left:50px;
+}

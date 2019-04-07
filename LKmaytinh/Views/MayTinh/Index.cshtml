@@ -1,0 +1,52 @@
+﻿@using LKmaytinh.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SanPham>
+
+@*@model IEnumerable<LKmaytinh.Models.SanPham>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+
+}
+<h1 style="text-align:center;color:red;margin-top:25px">Sản Phẩm Nổi Bật</h1>
+<div class="row" style="width:100%;margin-left:-1%;margin-top:70px" >
+    <div class="row" style="width: 70%;margin-left: 5%; margin-top: 70px;">
+        @using (Html.BeginForm("TimKiem", "MayTinh", FormMethod.Post))
+        {
+            <input type="text" style="float: left; max-width:20%;" name="tensp" class="form-control" placeholder="Tìm kiếm" />
+            <input type="submit" style="float: left; max-width: 7%; margin-left: 1%;" value="Tìm kiếm" class="btn btn-default" />
+        }
+    </div>
+    @foreach (var sanpham in Model)
+    {
+        <div class="col-lg-2 col-md-3 col-sm-4" style="margin-top:1%">
+            <div class="thumbnail" style="height:460px;overflow:hidden">
+                <a href="@Url.Action("Details", "MayTinh", new { id = sanpham.MaSP })">
+                    <img alt="@sanpham.TenSP"src="~/Hinhanh/@sanpham.Anhbia"  style="margin-left:-2%;height:60%;width:100%" />
+                </a>
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @sanpham.TenSP
+                    </h4>
+                    <p  style="color:red;position:absolute;bottom:0%;right:8%">
+                        @string.Format("{0:0,000 VNĐ}", sanpham.Gia)
+                    </p>
+                
+
+                </div>    
+                </div>
+            </div>
+
+        }
+</div>
+Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page=page}))
+</div>
+<style>
+    .MenuTrang li{
+        display:inline;
+    }
+</style>

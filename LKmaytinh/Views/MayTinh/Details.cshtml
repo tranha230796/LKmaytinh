@@ -1,0 +1,61 @@
+﻿
+<style type="text/css">
+    #Datmua a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: right;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
+@model LKmaytinh.Models.SanPham
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/LayOut/NguoiDungLayout.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bold;color:red">THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+<h3 style="text-align:center;color:black;font-weight:bold"><span style="color:blue">Tên Sản Phẩm:</span>    @Model.TenSP</h3>
+<h4 style="text-align:center;color:black;font-weight:bold"><span style="color:blue">Hãng Sản Xuất:</span> @Model.NhaSX.TenNSX</h4>
+<div>
+    <div style="width:100%; border-left: dotted 1px;border-color:azure;text-align:center">
+        <img src="~/Hinhanh/@Model.Anhbia" width="20%" />
+    </div>
+    <div style="width:100%;float:none;padding:10px">
+
+        <p style="text-align:center;color:black"><span style="font-weight:bold;font-size:17px;color:red">Mô tả:</span> @Html.Raw(@Model.Mota)</p>
+        <p style="font-weight:bold;text-align:center"><span style="color:red;font-size:17pt">Giá sản phẩm:</span> @string.Format("{0:0,000 VNĐ}", @Model.Gia)   </p>
+        <div style="text-align:center">
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=1335482446552794&autoLogAppEvents=1';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+            <div class="fb-share-button"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        </div>
+    </div>
+    <div>
+        <div id="Datmua">
+            <a href="@Url.Action("ThemGiohang","Giohang",new{@iMaSP = @Model.MaSP,@strURL=Request.Url.ToString()})" class="list-group-item">
+                Đặt Mua
+            </a>
+        </div>
+    </div>
+</div>
+
+

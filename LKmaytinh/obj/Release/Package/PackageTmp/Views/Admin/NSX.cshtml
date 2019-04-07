@@ -1,0 +1,33 @@
+﻿@model IEnumerable<LKmaytinh.Models.NhaSX>
+
+@{
+    ViewBag.Title = "NSX";
+    Layout = "~/Views/LayOut/AdminLayout.cshtml";
+}
+
+<h2>Quản Lý Nhà Sản Xuất</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới Nhà Sản Xuất", "ThemNSX","Admin")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px"> Tên Nhà Sản Xuất
+            
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNSX)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa NSX", "SuaNSX", new { id=item.MaNSX }) |
+            
+        </td>
+    </tr>
+}
+
+</table>

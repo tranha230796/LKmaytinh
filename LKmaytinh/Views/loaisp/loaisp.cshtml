@@ -1,0 +1,29 @@
+﻿@using LKmaytinh.Models;
+@model List<Loai>
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("SPtheoloai","MayTinh", new {id = item.Maloai })" @*style="width:300px"*@>
+        <li>
+            @item.Tenloai
+        </li>
+    </a>
+}
+@* <a href="#" class="button" style="width:300px ">San pham khac </a>*@
+@*<a href="#" class="button">Man Hinh</a>
+    <a href="#" class="button">Bo Mach Chu</a>
+    <a href="#" class="button">Bo Vi Xu Ly</a>
+    <a href="#" class="button">Card Man Hinh</a>
+    <a href="#" class="button">Bo Nho Trong</a>
+    <a href="#" class="button">Tan Nhiet</a>
+    <a href="#" class="button">Thung May Tinh</a>
+    <a href="#" class="button">Nguon May Tinh</a>*@
+
+
+
+@*<div class="list-group">
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("loaisp","loaisp",new { id=item.Tenloai})"class="list-group-item">
+            </a>
+        }
+    </div>*@
